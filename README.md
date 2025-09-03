@@ -49,4 +49,7 @@
   <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/pacman-contribution-graph.svg">
 </picture>
 
+### 🟢 Pacman Contribution Graph
+![Pacman Graph](https://raw.githubusercontent.com/satvikparakh18/satvikparakh18/output/pacman-contribution-graph.svg)
+
 ###
