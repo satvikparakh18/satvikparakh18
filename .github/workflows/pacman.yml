@@ -2,37 +2,40 @@ name: Generate pacman animation
 
 on:
   schedule:
-    - cron: "0 */12 * * *"   # runs every 12 hours
-  workflow_dispatch:          # allows manual trigger
+    - cron: "0 */12 * * *"   # every 12 hours
+  workflow_dispatch:          # manual trigger
   push:
     branches:
-      - main                  # also runs when you push to main
+      - main
 
 jobs:
   generate:
-    permissions:
-      contents: write         # allow pushing to output branch
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: Generate pacman-contribution-graph.svg
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
 
-      - name: Move file to dist
+      - name: Prepare dist folder
         run: |
           mkdir -p dist
-          cp pacman-contribution-graph.svg dist/pacman-contribution-graph.svg
+          cp pacman-contribution-graph.svg dist/
 
-      - name: Push to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+      - name: Deploy pacman graph to output branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: output
+          publish_dir: dist
