@@ -4,9 +4,7 @@
 
 Email Me 👉 ✉️ **satvikparakh@gmail.com** For Collaboration/Project or Job. 😊😊
 
-- 🔭 **I’m currently working on:** Full Stack Project
-- 🌱 **I’m currently learning:** SQL,Node.js
-- 👯 **I’m looking to collaborate on:** IPL players dashboard using PowerBi
+- 🌱 **I’m currently learning:** DBT
 - 💬 **Ask me about:** Collaboration, Tech Support
 - 📫 **How to reach me:** satvikparakh@gmail.com
 - 😄 **Pronouns:** SUT-veek
